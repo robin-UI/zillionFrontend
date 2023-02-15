@@ -5,8 +5,6 @@ import { RiCloseCircleLine } from 'react-icons/ri';
 
 const AddProducts = () => {
 
-    const URL = process.env.REACT_APP_API_URL
-
     let token = localStorage.getItem('AdminUser')
     const decoded = jwt_decode(token);
 
@@ -22,11 +20,11 @@ const AddProducts = () => {
 
     useEffect(() => {
         let resdata = async () => {
-            let res = await axios.get(URL+'/userAdmin/getallcategory')
+            let res = await axios.get('http://3.112.55.140:5000/userAdmin/getallcategory')
             setcategorys(res.data.message);
         }
         resdata()
-    }, [URL])
+    }, [])
 
     useEffect(() => {
         let value =  categorys.find(i => i.category === selectCat)
@@ -56,7 +54,7 @@ const AddProducts = () => {
             // console.log(prod);
             
             try {
-                let res = await axios.post(URL+"/admin/adminImageUpload", data)
+                let res = await axios.post("http://3.112.55.140:5000/admin/adminImageUpload", data)
                 console.log(res);
             } catch (error) {
                 console.log(error);
@@ -64,7 +62,7 @@ const AddProducts = () => {
         }   
         
         try {
-            let res = await axios.post(URL+'/userAdmin/createProducts', prod)
+            let res = await axios.post('http://3.112.55.140:5000/userAdmin/createProducts', prod)
             if(res){
                 window.location.reload()
             }
