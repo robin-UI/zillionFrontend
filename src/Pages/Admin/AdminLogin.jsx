@@ -15,7 +15,7 @@ const AdminLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post('http://3.112.55.140:5000/Admin/login', data)
+            let res = await axios.post('http://13.114.244.227:5000/Admin/login', data)
             console.log("hii");
             console.log(res);
             localStorage.setItem('Admin', res.data.authTocken);

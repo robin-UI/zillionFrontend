@@ -43,7 +43,7 @@ const CreateAdminUser = () => {
                 user.photo = fileName;
                 try {
                     console.log(file);
-                    await axios.post("http://3.112.55.140:5000/admin/adminImageUpload", data);
+                    await axios.post("http://13.114.244.227:5000/admin/adminImageUpload", data);
                 } catch (error) {
                     console.log(error);
                 }
@@ -51,7 +51,7 @@ const CreateAdminUser = () => {
 
             try {
 
-              let res = await axios.post("http://3.112.55.140:5000/admin/createAdminUser", user)
+              let res = await axios.post("http://13.114.244.227:5000/admin/createAdminUser", user)
               console.log(res);
 
             } catch (error) {

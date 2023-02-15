@@ -18,7 +18,7 @@ const ProductList = ({prod}) => {
 
     const verifyFun = async () => {
         try {
-            let res = await axios.put('http://3.112.55.140:5000/superAdmin/verifyproduct/'+ prod._id, data)
+            let res = await axios.put('http://13.114.244.227:5000/superAdmin/verifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(true)
             }
@@ -29,7 +29,7 @@ const ProductList = ({prod}) => {
 
     const unverifyFun = async () => {
         try {
-            let res = await axios.put('http://3.112.55.140:5000/superAdmin/unVerifyproduct/'+ prod._id, data)
+            let res = await axios.put('http://13.114.244.227:5000/superAdmin/unVerifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(false)
             }

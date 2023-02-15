@@ -11,7 +11,7 @@ const ProductComponent = ({prod}) => {
                     <img
                         alt="Placeholder"
                         className="block h-auto w-full"
-                        src={"http://3.112.55.140:5000/images/" + prod.photo}
+                        src={"http://13.114.244.227:5000/images/" + prod.photo}
                     />
                 </a>
                 <header className="flex items-center justify-between leading-tight p-2 md:p-4">

@@ -8,7 +8,7 @@ const HomeComponent = () => {
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get('http://3.112.55.140:5000/getallproduct')
+      let res = await axios.get('http://13.114.244.227:5000/getallproduct')
       console.log(res.data.message);
       setProd(res.data.message)
     }
