@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 const AdminUserLogin = () => {
 
-    const URL = process.env.REACT_APP_API_URL
     const email = useRef()
     const password = useRef()
     const history = useNavigate()
@@ -16,7 +15,7 @@ const AdminUserLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post(URL + '/userAdmin/login', data);
+            let res = await axios.post('http://localhost:5000/userAdmin/login', data);
             localStorage.setItem('AdminUser', res.data.authTocken);
             history('/adminuser/')
             window.location.reload();

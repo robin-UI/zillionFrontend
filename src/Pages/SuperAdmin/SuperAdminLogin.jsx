@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useNavigate} from 'react-router-dom'
 
 const SuperAdminLogin = () => {
-    const URL = process.env.REACT_APP_API_URL
+
     const email = useRef()
     const password = useRef()
     const history = useNavigate()
@@ -15,7 +15,7 @@ const SuperAdminLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post(URL+ '/superAdmin/login', data)
+            let res = await axios.post('http://localhost:5000/superAdmin/login', data)
             console.log(res);
             localStorage.setItem('SuprtAdmin', res.data.message);
             history('/superadmin/')

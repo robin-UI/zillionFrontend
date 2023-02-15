@@ -4,7 +4,6 @@ import { RiCloseFill } from "react-icons/ri"
 import axios from 'axios'
 
 const CategoryList = (props) => {
-
   return (
     <li className="bg-white-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 flex justify-between" >
       {props.item}
@@ -48,8 +47,6 @@ const CategoryField = (props) => {
 
 const CreateCategory = () => {
 
-  const URL = process.env.REACT_APP_API_URL
-
   const [subCate, setSubcate] = useState([]);
   let addList = (inputText) => {
     if (inputText !== '')
@@ -71,7 +68,8 @@ const CreateCategory = () => {
     }
     
     try {
-      let res = await axios.post(URL+'/userAdmin/createCategories', data)
+      console.log(data);
+      let res = await axios.post('http://localhost:5000/userAdmin/createCategories', data)
       console.log(res);
     } catch (error) {
       console.log(error);

@@ -3,18 +3,17 @@ import React, { useEffect, useState } from 'react'
 import Products from './Products'
 
 const ApproveProduct = () => {
-    const URL = process.env.REACT_APP_API_URL
 
     const [prod, setProd] = useState([])
     useEffect(() => {
         const callPro = async () => {
-            let res = await axios.get(URL+'/userAdmin/getallproducts')
+            let res = await axios.get('http://localhost:5000/userAdmin/getallproducts')
             console.log(res.data.messaage);
             setProd(res.data.messaage)
         }
         callPro()
 
-    }, [URL])
+    }, [])
 
 
     return (
