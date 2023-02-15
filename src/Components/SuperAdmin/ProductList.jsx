@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { RiCheckFill, RiCloseCircleFill } from 'react-icons/ri'
 
 const ProductList = ({prod}) => {
-    const URL = process.env.REACT_APP_API_URL
+
     const [isVerify, setisVerify] = useState()
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const ProductList = ({prod}) => {
 
     const verifyFun = async () => {
         try {
-            let res = await axios.put(URL+'/superAdmin/verifyproduct/'+ prod._id, data)
+            let res = await axios.put('http://3.112.55.140:5000/superAdmin/verifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(true)
             }
@@ -29,7 +29,7 @@ const ProductList = ({prod}) => {
 
     const unverifyFun = async () => {
         try {
-            let res = await axios.put(URL+'/superAdmin/unVerifyproduct/'+ prod._id, data)
+            let res = await axios.put('http://3.112.55.140:5000/superAdmin/unVerifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(false)
             }

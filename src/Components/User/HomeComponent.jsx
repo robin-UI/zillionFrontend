@@ -4,19 +4,17 @@ import ProductComponent from './ProductComponent'
 
 const HomeComponent = () => {
 
-  const URL = process.env.REACT_APP_API_URL
-
   const [prod, setProd] = useState([])
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get(URL+'/getallproduct')
+      let res = await axios.get('http://3.112.55.140:5000/getallproduct')
       console.log(res.data.message);
       setProd(res.data.message)
     }
     callPro()
 
-  }, [URL])
+  }, [])
 
   return (
     <div>

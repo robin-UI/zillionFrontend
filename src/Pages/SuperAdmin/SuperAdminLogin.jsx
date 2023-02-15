@@ -15,7 +15,7 @@ const SuperAdminLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post('http://localhost:5000/superAdmin/login', data)
+            let res = await axios.post('http://3.112.55.140:5000/superAdmin/login', data)
             console.log(res);
             localStorage.setItem('SuprtAdmin', res.data.message);
             history('/superadmin/')

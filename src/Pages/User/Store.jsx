@@ -8,7 +8,7 @@ const Store = () => {
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get('http://localhost:5000/userAdmin/getallproducts')
+      let res = await axios.get('http://3.112.55.140:5000/userAdmin/getallproducts')
       console.log(res.data.messaage);
       setProd(res.data.messaage)
     }

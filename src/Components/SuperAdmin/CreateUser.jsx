@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useRef } from 'react'
 
 export const CreateUser = () => {
-    const URL = process.env.REACT_APP_API_URL
     const username = useRef()
     const email = useRef()
     const password = useRef()
@@ -15,7 +14,7 @@ export const CreateUser = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post(URL+"/superAdmin/createAdmin", data)
+            let res = await axios.post("http://3.112.55.140:5000/superAdmin/createAdmin", data)
             if (res) {
                 window.location.reload()
             }
