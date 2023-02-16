@@ -70,7 +70,7 @@ const CreateCategory = () => {
     
     try {
       console.log(data);
-      let res = await axiosInstance.post('http://13.114.244.227:5000/userAdmin/createCategories', data)
+      let res = await axiosInstance.post('/userAdmin/createCategories', data)
       console.log(res);
     } catch (error) {
       console.log(error);
