@@ -3,20 +3,18 @@ import React, { useEffect, useState } from 'react'
 import ProductComponent from '../../Components/User/ProductComponent'
 
 const Store = () => {
-
-  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
-
+  const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
   const [prod, setProd] = useState([])
 
   useEffect(() => {
     const callPro = async () => {
       let res = await axiosInstance.get('/getallproduct')
-      console.log(res.data.messaage);
-      setProd(res.data.messaage)
+      console.log(res.data.message);
+      setProd(res.data.message)
     }
     callPro()
 
-  }, [axiosInstance])
+  }, [])
 
   return (
     <>
