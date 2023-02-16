@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ProductComponent from './ProductComponent'
 
 const HomeComponent = () => {
-  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
+  const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
   const [prod, setProd] = useState([])
 
   useEffect(() => {
@@ -18,107 +18,41 @@ const HomeComponent = () => {
 
   return (
     <div>
-      <div id="controls-carousel" className="relative" data-carousel="static">
-        {/* Carousel wrapper */}
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-          {/* Item 1 */}
-          <div className="hidden duration-700 ease-in-out" data-carousel-item="">
-            <img
-              src="/images/image1.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          {/* Item 2 */}
-          <div
-            className="hidden duration-700 ease-in-out"
-            data-carousel-item="active"
-          >
-            <img
-              src="/images/image2.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          {/* Item 3 */}
-          <div className="hidden duration-700 ease-in-out" data-carousel-item="">
-            <img
-              src="/images/image3.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          {/* Item 4 */}
-          <div className="hidden duration-700 ease-in-out" data-carousel-item="">
-            <img
-              src="/images/image1.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          {/* Item 5 */}
-          <div className="hidden duration-700 ease-in-out" data-carousel-item="">
-            <img
-              src="/images/image2.jpg"
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
+      <section className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
+        <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:to-white/25" />
+        <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
+          <div className="max-w-xl text-center sm:text-left">
+            <h1 className="text-3xl font-extrabold sm:text-5xl">
+              Let us find your
+              <strong className="block font-extrabold text-blue-700">
+                Forever Home.
+              </strong>
+            </h1>
+            <p className="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
+              tenetur fuga ducimus numquam ea!
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 text-center">
+              <h1
+                
+                className="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
+              >
+                Get Started
+              </h1>
+              <h1
+                
+                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+              >
+                Learn More
+              </h1>
+            </div>
           </div>
         </div>
-        {/* Slider controls */}
-        <button
-          type="button"
-          className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          data-carousel-prev=""
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6 text-white dark:text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            <span className="sr-only">Previous</span>
-          </span>
-        </button>
-        <button
-          type="button"
-          className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          data-carousel-next=""
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6 text-white dark:text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-            <span className="sr-only">Next</span>
-          </span>
-        </button>
-      </div>
+      </section>
+
 
 
       <div className="container my-12 mx-auto px-4 md:px-12">
-
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* Column */}
           {prod ? prod.map((p) => (

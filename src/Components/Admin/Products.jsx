@@ -22,7 +22,7 @@ const Products = ({prod}) => {
       } catch (error) {
         
       }
-    }, [prod.adminId, prod.approve, axiosInstance])
+    }, [prod.adminId, prod.approve])
     
 
     const approveFun = async () => {
@@ -54,7 +54,7 @@ const Products = ({prod}) => {
         <div className='my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3' >
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="/">
-                <img className="p-8 rounded-t-lg" src={URL+'/images/' + prod.photo} alt='thisimag' />
+                <img className="p-8 rounded-t-lg" src={ process.env.REACT_APP_API_URL +'/images/' + prod.photo} alt='thisimag' />
             </a>
             <div className="px-5 pb-5">
                 

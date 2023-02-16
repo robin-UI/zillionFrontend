@@ -10,7 +10,7 @@ const Store = () => {
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axiosInstance.get('/userAdmin/getallproducts')
+      let res = await axiosInstance.get('/getallproduct')
       console.log(res.data.messaage);
       setProd(res.data.messaage)
     }
