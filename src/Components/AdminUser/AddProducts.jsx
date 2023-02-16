@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri';
 
 const AddProducts = () => {
-
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     let token = localStorage.getItem('AdminUser')
     const decoded = jwt_decode(token);
 
@@ -20,11 +20,11 @@ const AddProducts = () => {
 
     useEffect(() => {
         let resdata = async () => {
-            let res = await axios.get('http://13.114.244.227:5000/userAdmin/getallcategory')
+            let res = await axiosInstance.get('/userAdmin/getallcategory')
             setcategorys(res.data.message);
         }
         resdata()
-    }, [])
+    }, [axiosInstance])
 
     useEffect(() => {
         let value =  categorys.find(i => i.category === selectCat)
@@ -54,7 +54,7 @@ const AddProducts = () => {
             // console.log(prod);
             
             try {
-                let res = await axios.post("http://13.114.244.227:5000/admin/adminImageUpload", data)
+                let res = await axiosInstance.post("/admin/adminImageUpload", data)
                 console.log(res);
             } catch (error) {
                 console.log(error);
@@ -62,7 +62,7 @@ const AddProducts = () => {
         }   
         
         try {
-            let res = await axios.post('http://13.114.244.227:5000/userAdmin/createProducts', prod)
+            let res = await axiosInstance.post('/userAdmin/createProducts', prod)
             if(res){
                 window.location.reload()
             }

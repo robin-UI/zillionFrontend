@@ -4,17 +4,19 @@ import ProductComponent from '../../Components/User/ProductComponent'
 
 const Store = () => {
 
+  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
+
   const [prod, setProd] = useState([])
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get('http://13.114.244.227:5000/userAdmin/getallproducts')
+      let res = await axiosInstance.get('/userAdmin/getallproducts')
       console.log(res.data.messaage);
       setProd(res.data.messaage)
     }
     callPro()
 
-  }, [])
+  }, [axiosInstance])
 
   return (
     <>

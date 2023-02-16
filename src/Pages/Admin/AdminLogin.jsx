@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const AdminLogin = () => {
-
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     const email = useRef()
     const password = useRef()
     const history = useNavigate()
@@ -15,7 +15,7 @@ const AdminLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post('http://13.114.244.227:5000/Admin/login', data)
+            let res = await axiosInstance.post('/Admin/login', data)
             console.log("hii");
             console.log(res);
             localStorage.setItem('Admin', res.data.authTocken);

@@ -4,6 +4,7 @@ import { useNavigate} from 'react-router-dom'
 
 const SuperAdminLogin = () => {
 
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     const email = useRef()
     const password = useRef()
     const history = useNavigate()
@@ -15,7 +16,7 @@ const SuperAdminLogin = () => {
             password: password.current.value
         }
         try {
-            let res = await axios.post('http://13.114.244.227:5000/superAdmin/login', data)
+            let res = await axiosInstance.post('/superAdmin/login', data)
             console.log(res);
             localStorage.setItem('SuprtAdmin', res.data.message);
             history('/superadmin/')

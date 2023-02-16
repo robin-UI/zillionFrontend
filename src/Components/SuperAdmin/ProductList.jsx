@@ -5,7 +5,7 @@ import { RiCheckFill, RiCloseCircleFill } from 'react-icons/ri'
 const ProductList = ({prod}) => {
 
     const [isVerify, setisVerify] = useState()
-
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     useEffect(() => {
       setisVerify(prod.verified)
     }, [prod.verified])
@@ -18,7 +18,7 @@ const ProductList = ({prod}) => {
 
     const verifyFun = async () => {
         try {
-            let res = await axios.put('http://13.114.244.227:5000/superAdmin/verifyproduct/'+ prod._id, data)
+            let res = await axiosInstance.put('/superAdmin/verifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(true)
             }
@@ -29,7 +29,7 @@ const ProductList = ({prod}) => {
 
     const unverifyFun = async () => {
         try {
-            let res = await axios.put('http://13.114.244.227:5000/superAdmin/unVerifyproduct/'+ prod._id, data)
+            let res = await axiosInstance.put('/superAdmin/unVerifyproduct/'+ prod._id, data)
             if (res) {
                 setisVerify(false)
             }
@@ -37,11 +37,7 @@ const ProductList = ({prod}) => {
             console.log(error);
         }
     }
-
     
-
-    
-
     return (
         <>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

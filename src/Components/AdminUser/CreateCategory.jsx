@@ -48,6 +48,7 @@ const CategoryField = (props) => {
 const CreateCategory = () => {
 
   const [subCate, setSubcate] = useState([]);
+  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
   let addList = (inputText) => {
     if (inputText !== '')
       setSubcate([...subCate, inputText]);
@@ -69,7 +70,7 @@ const CreateCategory = () => {
     
     try {
       console.log(data);
-      let res = await axios.post('http://13.114.244.227:5000/userAdmin/createCategories', data)
+      let res = await axiosInstance.post('http://13.114.244.227:5000/userAdmin/createCategories', data)
       console.log(res);
     } catch (error) {
       console.log(error);

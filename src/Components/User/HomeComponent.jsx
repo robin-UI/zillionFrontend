@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import ProductComponent from './ProductComponent'
 
 const HomeComponent = () => {
-
+  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
   const [prod, setProd] = useState([])
 
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get('http://13.114.244.227:5000/getallproduct')
+      let res = await axiosInstance.get('/getallproduct')
       console.log(res.data.message);
       setProd(res.data.message)
     }
@@ -118,6 +118,7 @@ const HomeComponent = () => {
 
 
       <div className="container my-12 mx-auto px-4 md:px-12">
+
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* Column */}
           {prod ? prod.map((p) => (

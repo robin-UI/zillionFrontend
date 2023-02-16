@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ProductComponent = ({prod}) => {
-
     return (
         <>
          <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
@@ -11,7 +10,7 @@ const ProductComponent = ({prod}) => {
                     <img
                         alt="Placeholder"
                         className="block h-auto w-full"
-                        src={"http://13.114.244.227:5000/images/" + prod.photo}
+                        src={process.env.REACT_APP_API_URL +"/images/" + prod.photo}
                     />
                 </a>
                 <header className="flex items-center justify-between leading-tight p-2 md:p-4">

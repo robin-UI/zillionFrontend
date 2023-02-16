@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const Products = ({prod}) => {
-    const URL = process.env.REACT_APP_API_URL
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     const [user, setUser] = useState('');
     const [isApprove, setIsApprove] = useState(false);
 
@@ -14,7 +14,7 @@ const Products = ({prod}) => {
     useEffect(() => {
       try {
         const getUser = async () => {
-            let res = await axios.get(URL+'/userAdmin/getuserDetails/'+ prod.adminId)
+            let res = await axiosInstance.get('/userAdmin/getuserDetails/'+ prod.adminId)
             setUser(res.data.data.adminname);
             setIsApprove(prod.approve)
         }
@@ -22,13 +22,13 @@ const Products = ({prod}) => {
       } catch (error) {
         
       }
-    }, [prod.adminId, prod.approve, URL])
+    }, [prod.adminId, prod.approve, axiosInstance])
     
 
     const approveFun = async () => {
         try {
             
-            let res = await axios.put(URL+'/admin/approveproduct/'+ prod._id, data)
+            let res = await axiosInstance.put('/admin/approveproduct/'+ prod._id, data)
             if (res) {
                 setIsApprove(true) 
             }
@@ -40,7 +40,7 @@ const Products = ({prod}) => {
     const rejectFun = async () => {
         try {
             
-            let res = await axios.put(URL+'/admin/rejectproduct/'+ prod._id, data)
+            let res = await axiosInstance.put('/admin/rejectproduct/'+ prod._id, data)
             if (res){
                 setIsApprove(false)
             }

@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri"
 
 const CreateAdminUser = () => {
-
+    const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
     let token = localStorage.getItem('Admin')
     const decoded = jwt_decode(token);
 
@@ -43,7 +43,7 @@ const CreateAdminUser = () => {
                 user.photo = fileName;
                 try {
                     console.log(file);
-                    await axios.post("http://13.114.244.227:5000/admin/adminImageUpload", data);
+                    await axiosInstance.post("/admin/adminImageUpload", data);
                 } catch (error) {
                     console.log(error);
                 }
@@ -51,7 +51,7 @@ const CreateAdminUser = () => {
 
             try {
 
-              let res = await axios.post("http://13.114.244.227:5000/admin/createAdminUser", user)
+              let res = await axiosInstance.post("/admin/createAdminUser", user)
               console.log(res);
 
             } catch (error) {

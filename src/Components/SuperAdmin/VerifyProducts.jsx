@@ -3,18 +3,18 @@ import React, { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 
 const VerifyProducts = () => {
-  const URL = process.env.REACT_APP_API_URL
+  const axiosInstance = axios.create({baseURL: process.env.REACT_APP_API_URL})
 
   const [prod, setProd] = useState([])
   useEffect(() => {
     const callPro = async () => {
-      let res = await axios.get(URL+'/userAdmin/getallproducts')
+      let res = await axiosInstance.get('/userAdmin/getallproducts')
       console.log(res.data.messaage);
       setProd(res.data.messaage)
     }
     callPro()
 
-  }, [URL])
+  }, [])
 
 
   return (
